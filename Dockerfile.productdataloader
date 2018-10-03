@@ -1,0 +1,9 @@
+# docker build -f Dockerfile.productdataloader -t java_mvn_redis_productloader:1.0 .
+FROM maven
+
+RUN apt-get update
+RUN mkdir /code
+ADD . /code
+WORKDIR /code/product-service
+
+CMD ["mvn", "clean", "install", "-U"]

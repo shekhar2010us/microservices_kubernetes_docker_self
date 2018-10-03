@@ -1,0 +1,7 @@
+@header: product_id, product_name, product_price
+201, Watch, 850
+202, Phone, 1050
+203, Bag, 250
+204, Laptop, 1300
+205, Headphone, 300
+206, Camera, 550

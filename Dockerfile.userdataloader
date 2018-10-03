@@ -1,0 +1,11 @@
+# docker build -f Dockerfile.userdataloader -t java_mvn_redis_userloader:1.0 .
+FROM maven
+
+RUN mkdir /code
+ADD . /code
+WORKDIR /code/user-service
+
+RUN mvn clean install -U
+
+#CMD ["mvn", "clean", "install"]
+CMD ["/bin/bash"]

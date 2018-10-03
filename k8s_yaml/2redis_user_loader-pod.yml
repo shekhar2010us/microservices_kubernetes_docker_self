@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis-user-loader
+spec:
+  containers:
+  - name: redis-user-loader
+    image: java_mvn_redis_userloader:1.0
+    command: ["mvn", "exec:java", "-Dexec.mainClass"]
+    args: ["com.app.startup.DataLoader"]

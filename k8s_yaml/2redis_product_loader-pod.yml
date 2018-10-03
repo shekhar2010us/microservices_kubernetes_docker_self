@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Pod
+metadata:
+  name: redis-product-loader
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: redis-product-loader
+    spec:
+      containers:
+      - image: java_mvn_redis_productloader:1.0
+        name: redis-product-loader
+        command:
+        - mvn
+        - exec:java
+        - -Dexec.mainClass="com.app.startup.DataLoader"

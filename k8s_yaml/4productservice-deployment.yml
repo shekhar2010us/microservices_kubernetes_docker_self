@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: productservice
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: productservice
+    spec:
+      containers:
+      - image: tomcat
+        name: productservice
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - mountPath: /usr/local/tomcat/webapps/product-service-1.0.war
+          name: product-service-war
+      volumes:
+      - name: product-service-war
+        hostPath:
+          path: ../product-service/target/product-service-1.0.war

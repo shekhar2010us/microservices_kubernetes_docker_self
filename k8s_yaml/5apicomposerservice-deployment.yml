@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: apicomposerservice
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: apicomposerservice
+    spec:
+      containers:
+      - image: tomcat
+        name: apicomposerservice
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - mountPath: /usr/local/tomcat/webapps/apicomposer-service-1.0.war
+          name: apicomposer-service-war
+      volumes:
+      - name: apicomposer-service-war
+        hostPath:
+          path: ../api-composer-service/target/apicomposer-service-1.0.war

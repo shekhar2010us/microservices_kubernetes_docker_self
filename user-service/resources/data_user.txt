@@ -1,0 +1,7 @@
+@header: user_id, user_name, user_credit
+101, John, 500
+102, Mike, 1000
+103, Sam, 800
+104, Maria, 750
+105, Mary, 1200
+106, Lynda, 1500
